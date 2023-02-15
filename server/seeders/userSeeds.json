@@ -1,0 +1,17 @@
+[
+  {
+    "username": "Brian Kernighan",
+    "email": "bkernighan@gmail.com",
+    "password": "password01"
+  },
+  {
+    "username": "Kent Beck",
+    "email": "kbeck@gmail.com",
+    "password": "password02"
+  },
+  {
+    "username": "David Thomas",
+    "email": "dthomas@gmail.com",
+    "password": "password03"
+  }
+]
