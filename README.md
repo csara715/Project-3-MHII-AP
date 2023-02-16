@@ -37,7 +37,7 @@ npm i
 
 ## Usage
 
-- https://fathomless-island-66703.herokuapp.com/
+- https://mhii-ap.herokuapp.com/
 
 |     ![Home](./assets/images/Home.png)      | ![Profile](./assets/images/Profile.png) |
 | :----------------------------------------: | :-------------------------------------: |
