@@ -25,8 +25,6 @@ const MedicationForm = () => {
   const [direction, setDirection] = useState("");
   const [prescriber, setPrescriber] = useState("");
 
-  const { user } = useQuery(QUERY_USER);
-
   const [addMedication, { error }] = useMutation(ADD_MEDICATION, {
     update(cache, { data: { addMedication } }) {
       try {
@@ -41,18 +39,6 @@ const MedicationForm = () => {
       } catch (e) {
         console.error(e);
       }
-
-      // update user object's cache
-      const { patient } = cache.readQuery({ query: QUERY_USER });
-      cache.writeQuery({
-        query: QUERY_USER,
-        data: {
-          patient: {
-            ...patient,
-            medications: [...patient.medications, addMedication],
-          },
-        },
-      });
     },
   });
 

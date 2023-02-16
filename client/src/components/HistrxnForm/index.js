@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import { ADD_MEDICATION } from "../../utils/mutations";
-import { QUERY_MEDICATIONS, QUERY_USER } from "../../utils/queries";
+import { QUERY_MEDICATIONS } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
 
@@ -19,7 +19,7 @@ const styles = {
   },
 };
 
-const HistrxnForm = (props) => {
+const HistrxnForm = () => {
   const [medName, setMedName] = useState("");
   const [reaction, setReaction] = useState("");
 
@@ -35,15 +35,6 @@ const HistrxnForm = (props) => {
       } catch (e) {
         console.error(e);
       }
-
-      // update user object's cache
-      const { user } = cache.readQuery({ query: QUERY_USER });
-      cache.writeQuery({
-        query: QUERY_USER,
-        data: {
-          user: { ...user, medications: [...user.medications, addMedication] },
-        },
-      });
     },
   });
 

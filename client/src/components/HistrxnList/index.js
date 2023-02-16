@@ -1,22 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_USER } from "../../utils/queries";
+import { QUERY_MEDICATIONS } from "../../utils/queries";
 import "../../list.css";
 
 const HistrxnList = (props) => {
-  const { data } = useQuery(QUERY_USER);
+  const { data } = useQuery(QUERY_MEDICATIONS);
 
-  let allergies = [];
+  let medications = [];
 
   if (data) {
-    allergies = data.user.medications.filter(data.user.medications.allergic);
-  }
-
-  if (!allergies.length) {
+    medications = data.medications;
+  } else {
     return <h3>Yay! No allergies!</h3>;
   }
 
+  // const [removeMedication, { error }] = useMutation(REMOVE_MEDICATION, {
+  //   update(cache, { data: { removeMedication } }) {
+  //     try {
+  //       const { medications } = cache.readQuery({
+  //         query: QUERY_MEDICATIONS,
+  //       });
+
+  //       cache.writeQuery({
+  //         query: QUERY_MEDICATIONS,
+  //         data: { medications: [removeMedication, ...medications] },
+  //       });
+  //     } catch (e) {
+  //       console.error(e);
+  //     }
+  //   },
+  // });
+
+  // const deleteMed = async ({ medicationId }) => {
+  //   try {
+  //     const { data } = await removeMedication({
+  //       variables: {
+  //         _id: medicationId,
+  //       },
+  //     });
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
+  //Referenced https://iamrohit.in/css-notebook-paper-design/
   return (
     <div className="wrapper">
       <div className="note">
@@ -73,11 +101,31 @@ const HistrxnList = (props) => {
             </p>
           </div>
           <div className="line flex-row">
-            {allergies.map((allergy) => (
-              <div className="line flex-row" key={allergy._id}>
-                {allergy.medName}: {allergy.reaction}
-              </div>
-            ))}
+            {medications
+              .filter((medication) => medication.allergic)
+              .map((medication) => (
+                <div className="note-lines" key={medication._id}>
+                  <div className="line">
+                    <p> 💊 {medication.medName} </p>
+                  </div>
+                  <div className="line">
+                    <p>
+                      {" "}
+                      -- Reaction: {medication.reaction}
+                      <span
+                        className="emoji "
+                        role="img"
+                        aria-label="trash"
+                        aria-hidden="false"
+                        align="left"
+                        // onClick={() => deleteMed(medication._id)}
+                      >
+                        🗑️
+                      </span>{" "}
+                    </p>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>

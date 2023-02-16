@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import UserContextComponent from "../../utils/UserContext";
 
 import Auth from "../../utils/auth";
 
@@ -50,6 +51,7 @@ const Header = (props) => {
         <div>
           {Auth.loggedIn() ? (
             <>
+              <UserContextComponent user={Auth.getProfile().data.user} />
               <Link
                 className="btn btn-md m-2"
                 style={styles.button2}

@@ -1,17 +1,16 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Navigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import HistrxnForm from "../components/HistrxnForm";
 import HistrxnList from "../components/HistrxnList";
 
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { QUERY_USER } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
-const Allergies = (props) => {
-  const userLoggedIn = Auth.getProfile().data.username;
+const Allergies = () => {
+  const user = Auth.getProfile().data.username;
 
   return (
     <div>
@@ -19,14 +18,14 @@ const Allergies = (props) => {
         <>
           <div className="flex-row justify-center mb-3 text-center">
             <h3 className="col-12 col-md-10 text-primary p-3 mb-5">
-              {userLoggedIn}, welcome to your allergy profile!
+              {user}, welcome to your allergy profile!
             </h3>
 
             <div className="col-12 col-md-10 mb-5">
-              <HistrxnList username={userLoggedIn} />
+              <HistrxnList />
             </div>
             <div className="col-12 col-md-10 mb-5">
-              <HistrxnForm username={userLoggedIn} />
+              <HistrxnForm />
             </div>
           </div>
         </>

@@ -1,7 +1,7 @@
 import React from "react";
 import healthcare from "./../images/healthcare.jpeg";
 import Auth from "../utils/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const styles = {
   img: {
