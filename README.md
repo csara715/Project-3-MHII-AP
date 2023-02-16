@@ -39,9 +39,9 @@ npm i
 
 - https://fathomless-island-66703.herokuapp.com/
 
-|      ![Login](./assets/images/Login.png)      | ![Profile](./assets/images/Profile.png) |
-| :-------------------------------------------: | :-------------------------------------: |
-| ![Categories](./assets/images/Categories.png) |   ![Items](./assets/images/Items.png)   |
+|     ![Home](./assets/images/Home.png)      | ![Profile](./assets/images/Profile.png) |
+| :----------------------------------------: | :-------------------------------------: |
+| ![Categories](./assets/images/MedList.png) | ![Items](./assets/images/Allergies.png) |
 
 ## License
 
