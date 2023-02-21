@@ -50,7 +50,11 @@ const Home = (props) => {
             </p>
           </div>
           <div className="flex-row justify-center">
-            <img src={healthcare} style={styles.img} />
+            <img
+              src={healthcare}
+              style={styles.img}
+              alt="images of healthcare providers"
+            />
           </div>
           <div className="flex-row justify-center">
             <Link
@@ -94,7 +98,11 @@ const Home = (props) => {
             <p>Login or signup to start building your medication profile</p>
           </div>
           <div className="flex-row justify-center">
-            <img src={healthcare} style={styles.img} />
+            <img
+              src={healthcare}
+              style={styles.img}
+              alt="team of healthcare providers"
+            />
           </div>
           <div className="flex-row justify-center">
             <p>More funtionality coming in the future!</p>
