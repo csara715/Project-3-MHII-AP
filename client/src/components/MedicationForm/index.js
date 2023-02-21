@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 
 import { ADD_MEDICATION } from "../../utils/mutations";
-import { QUERY_MEDICATIONS, QUERY_USER } from "../../utils/queries";
+import { QUERY_MEDICATIONS } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
 

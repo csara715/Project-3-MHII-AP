@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import MedicationForm from "../components/MedicationForm";
 import MedicationList from "../components/MedicationList";

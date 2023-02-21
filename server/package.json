@@ -1,7 +1,11 @@
 {
-  "name": "mern-server",
+  "name": "Project-3-MHII-AP",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "16.17.1",
+    "npm": "8.15.0"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

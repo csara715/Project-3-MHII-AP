@@ -1,11 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
 
 import HistrxnForm from "../components/HistrxnForm";
 import HistrxnList from "../components/HistrxnList";
-
-import { QUERY_USER } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
