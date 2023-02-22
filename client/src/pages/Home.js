@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const styles = {
   img: {
-    width: "600px",
-    height: "400px",
+    width: "80%",
+    height: "40%",
   },
   header: {
     background: "lightskyblue",

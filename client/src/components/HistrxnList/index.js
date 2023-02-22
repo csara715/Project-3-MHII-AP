@@ -3,6 +3,16 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MEDICATIONS } from "../../utils/queries";
 import { REMOVE_MEDICATION } from "../../utils/mutations";
 
+const styles = {
+  btn: {
+    textAlign: "right",
+  },
+  button: {
+    background: "skyblue",
+    color: "blue",
+  },
+};
+
 const HistrxnList = (props) => {
   const { data } = useQuery(QUERY_MEDICATIONS);
 
@@ -202,12 +212,24 @@ const HistrxnList = (props) => {
                 <p key={medication._id}>
                   💊 {medication.medName} <br />
                   Reaction: {medication.reaction}
-                  <button onClick={() => deleteMed({ _id: medication.id })}>
-                    {"   "}
-                    🗑️{"   "}
-                  </button>
-                  <br />
-                  <br />
+                  <p style={styles.btn}>
+                    <button
+                      className="btn btn-sm m-2"
+                      style={styles.button}
+                      onClick={() => deleteMed({ _id: medication.id })}
+                    >
+                      {"   "}
+                      Delete 🗑️{"   "}
+                    </button>
+                    <button
+                      className="btn btn-sm m-2"
+                      style={styles.button}
+                      onClick={() => deleteMed({ _id: medication.id })}
+                    >
+                      {"   "}
+                      Update ⬆️{"   "}
+                    </button>
+                  </p>
                 </p>
               ))}
           </div>

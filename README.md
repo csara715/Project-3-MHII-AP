@@ -39,9 +39,10 @@ npm i
 
 - https://mhii-ap.herokuapp.com/
 
-|     ![Home](./assets/images/Home.png)      | ![Profile](./assets/images/Profile.png) |
-| :----------------------------------------: | :-------------------------------------: |
-| ![Categories](./assets/images/MedList.png) | ![Items](./assets/images/Allergies.png) |
+|        ![Home](./assets/images/Home.png)        |   ![Profile](./assets/images/Profile.png)   |
+| :---------------------------------------------: | :-----------------------------------------: |
+|       ![Login](./assets/images/Login.png)       |    ![Signup](./assets/images/SignUp.png)    |
+| ![Medications](./assets/images/Medications.png) | ![Allergies](./assets/images/Allergies.png) |
 
 ## License
 

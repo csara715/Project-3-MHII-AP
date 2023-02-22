@@ -18,10 +18,11 @@ const Medications = () => {
             </h3>
 
             <div className="col-12 col-md-10 mb-5">
-              <MedicationList />
-            </div>
-            <div className="col-12 col-md-10 mb-5">
               <MedicationForm />
+            </div>
+
+            <div className="col-12 col-md-10 mb-5">
+              <MedicationList />
             </div>
           </div>
         </>

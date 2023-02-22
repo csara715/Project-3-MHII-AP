@@ -69,7 +69,7 @@ const HistrxnForm = () => {
 
   return (
     <div>
-      <h3>Please add or update your allergy list:</h3>
+      <h4>Please add or update your allergy list:</h4>
 
       {Auth.loggedIn() ? (
         <>

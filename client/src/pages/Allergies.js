@@ -18,10 +18,10 @@ const Allergies = () => {
             </h3>
 
             <div className="col-12 col-md-10 mb-5">
-              <HistrxnList />
+              <HistrxnForm />
             </div>
             <div className="col-12 col-md-10 mb-5">
-              <HistrxnForm />
+              <HistrxnList />
             </div>
           </div>
         </>
