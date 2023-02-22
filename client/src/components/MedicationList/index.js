@@ -1,27 +1,27 @@
 import React from "react";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_MEDICATIONS } from "../../utils/queries";
-import { REMOVE_MEDICATION } from "../../utils/mutations";
+// import { REMOVE_MEDICATION } from "../../utils/mutations";
 
-const styles = {
-  btn: {
-    display: "flex",
-    justifyContent: "flex-start",
-  },
-};
+// const styles = {
+//   btn: {
+//     display: "absolute",
+//     justifyContent: "left",
+//   },
+// };
 
 const MedicationList = () => {
   const { data } = useQuery(QUERY_MEDICATIONS);
-  const [removeMedication] = useMutation(REMOVE_MEDICATION);
+  // const [removeMedication] = useMutation(REMOVE_MEDICATION);
   let medications = [];
 
-  const deleteMed = (medicationId) => {
-    removeMedication({
-      variables: {
-        _id: medicationId,
-      },
-    });
-  };
+  // const deleteMed = (medicationId) => {
+  //   removeMedication({
+  //     variables: {
+  //       _id: medicationId,
+  //     },
+  //   });
+  // };
 
   if (data) {
     medications = data.medications;
@@ -61,31 +61,34 @@ const MedicationList = () => {
   //Referenced https://freefrontend.com/css-paper-effects/#google_vignette
   return (
     <>
-      <div className="notepad">
-        <div className="top"></div>
-        <div className="paper">
-          <h5>Current list of medications: </h5>
-          <br />
-          {medications
-            .filter((medication) => !medication.allergic)
-            .map((medication) => (
-              <p key={medication._id}>
-                💊 {medication.medName} {medication.strength} <br />
-                {medication.direction} <br />
-                Prescriber: {medication.prescriber}
-                <button
-                  className="emoji "
-                  role="img"
-                  aria-label="trash"
-                  aria-hidden="false"
-                  style={styles.btn}
-                  onClick={() => deleteMed(medication._id)}
-                >
-                  🗑️
-                </button>
-                <br />
-              </p>
-            ))}
+      <div className="notebody">
+        <div className="notepad">
+          <div className="top"></div>
+          <div className="paper">
+            <h5>Current list of medications: </h5>
+            <br />
+            {medications
+              .filter((medication) => !medication.allergic)
+              .map((medication) => (
+                <p key={medication._id}>
+                  💊 {medication.medName} {medication.strength} <br />
+                  {medication.direction} <br />
+                  Prescriber: {medication.prescriber}
+                  {/* <button
+                    className="emoji "
+                    role="img"
+                    aria-label="trash"
+                    aria-hidden="false"
+                    // style={styles.btn}
+                    onClick={() => deleteMed(medication._id)}
+                  >
+                    🗑️
+                  </button> */}
+                  <br />
+                  <br />
+                </p>
+              ))}
+          </div>
         </div>
       </div>
     </>
