@@ -1,22 +1,21 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MEDICATIONS } from "../../utils/queries";
-// import { REMOVE_MEDICATION } from "../../utils/mutations";
-// import "../../list.css";
+import { REMOVE_MEDICATION } from "../../utils/mutations";
 
 const HistrxnList = (props) => {
   const { data } = useQuery(QUERY_MEDICATIONS);
 
-  // const [removeMedication] = useMutation(REMOVE_MEDICATION);
+  const [removeMedication] = useMutation(REMOVE_MEDICATION);
   let medications = [];
 
-  // const deleteMed = (medicationId) => {
-  //   removeMedication({
-  //     variables: {
-  //       _id: medicationId,
-  //     },
-  //   });
-  // };
+  const deleteMed = (medicationId) => {
+    removeMedication({
+      variables: {
+        _id: medicationId,
+      },
+    });
+  };
 
   if (data) {
     medications = data.medications;
@@ -68,16 +67,11 @@ const HistrxnList = (props) => {
                 <p key={medication._id}>
                   💊 {medication.medName} <br />
                   Reaction: {medication.reaction}
-                  {/* <button
-                    className="emoji "
-                    role="img"
-                    aria-label="trash"
-                    aria-hidden="false"
-                    align="right"
-                    onClick={() => deleteMed(medication._id)}
-                  >
-                    🗑️
-                  </button> */}
+                  <button onClick={() => deleteMed({ _id: medication.id })}>
+                    {"   "}
+                    🗑️{"   "}
+                  </button>
+                  <br />
                   <br />
                 </p>
               ))}

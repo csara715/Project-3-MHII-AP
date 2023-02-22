@@ -99,22 +99,22 @@ const resolvers = {
     //   throw new AuthenticationError("You need to be logged in!");
     // },
 
-    // removeMedication: async (parent, { medicationId }, context) => {
-    //   if (context.user) {
-    //     const medication = await Medication.findOneAndDelete({
-    //       _id: medicationId,
-    //     });
+    removeMedication: async (parent, { medicationId }, context) => {
+      if (context.user) {
+        const medication = await Medication.findOneAndDelete({
+          _id: medicationId,
+        });
 
-    //     await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { medications: medication._id } }
-    //     );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { medications: medication._id } }
+        );
 
-    //     return medication;
-    //   }
+        return medication;
+      }
 
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 

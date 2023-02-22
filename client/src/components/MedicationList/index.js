@@ -1,7 +1,7 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MEDICATIONS } from "../../utils/queries";
-// import { REMOVE_MEDICATION } from "../../utils/mutations";
+import { REMOVE_MEDICATION } from "../../utils/mutations";
 
 // const styles = {
 //   btn: {
@@ -12,16 +12,16 @@ import { QUERY_MEDICATIONS } from "../../utils/queries";
 
 const MedicationList = () => {
   const { data } = useQuery(QUERY_MEDICATIONS);
-  // const [removeMedication] = useMutation(REMOVE_MEDICATION);
+  const [removeMedication] = useMutation(REMOVE_MEDICATION);
   let medications = [];
 
-  // const deleteMed = (medicationId) => {
-  //   removeMedication({
-  //     variables: {
-  //       _id: medicationId,
-  //     },
-  //   });
-  // };
+  const deleteMed = (medicationId) => {
+    removeMedication({
+      variables: {
+        _id: medicationId,
+      },
+    });
+  };
 
   if (data) {
     medications = data.medications;
@@ -74,16 +74,10 @@ const MedicationList = () => {
                   💊 {medication.medName} {medication.strength} <br />
                   {medication.direction} <br />
                   Prescriber: {medication.prescriber}
-                  {/* <button
-                    className="emoji "
-                    role="img"
-                    aria-label="trash"
-                    aria-hidden="false"
-                    // style={styles.btn}
-                    onClick={() => deleteMed(medication._id)}
-                  >
-                    🗑️
-                  </button> */}
+                  <button onClick={() => deleteMed({ _id: medication.id })}>
+                    {"   "}
+                    🗑️{"   "}
+                  </button>
                   <br />
                   <br />
                 </p>

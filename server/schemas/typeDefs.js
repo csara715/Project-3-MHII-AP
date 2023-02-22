@@ -42,6 +42,7 @@ const typeDefs = gql`
       allergic: Boolean
       reaction: String
     ): Medication
+    removeMedication(medicationId: ID!): Medication
   }
 `;
 
