@@ -63,7 +63,143 @@ const MedicationList = () => {
     <>
       <div className="notebody">
         <div className="notepad">
-          <div className="top"></div>
+          <div className="top">
+            <div class="spiral-part">
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+              <div class="spiral">
+                <div class="hole"></div>
+                <div class="wire"></div>
+              </div>
+            </div>
+          </div>
+
           <div className="paper">
             <h5>Current list of medications: </h5>
             <br />
