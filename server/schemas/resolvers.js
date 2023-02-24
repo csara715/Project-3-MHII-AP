@@ -85,21 +85,36 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    // updateMedication: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return await User.findByIdAndUpdate(
-    //       { _id: context.user._id },
-    //       { $addToSet: { medications: medication._id } },
-    //       {
-    //         new: true,
-    //         runValidators: true,
-    //       }
-    //     );
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+    updateMedication: async (parent, { _id }, context) => {
+      if (context.user) {
+        const medication = await Medication.findByIdAndUpdate(
+          { _id },
+          {
+            medName,
+            strength,
+            direction,
+            prescriber,
+            allergic,
+            reaction,
+          }
+        );
+
+        await User.findByIdAndUpdate(
+          context.user._id,
+          { $addToSet: { medications: medication._id } },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+
+        return medication;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
 
     removeMedication: async (parent, { medicationId }, context) => {
+      console.log(medicationId);
       if (context.user) {
         const medication = await Medication.findOneAndDelete({
           _id: medicationId,

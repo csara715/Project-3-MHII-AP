@@ -81,7 +81,7 @@ const MedicationForm = () => {
 
   return (
     <div>
-      <h3>Add or update your medication list:</h3>
+      <h4>Add or update your medication list:</h4>
 
       {Auth.loggedIn() ? (
         <>

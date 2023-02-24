@@ -23,6 +23,8 @@ I want patients to be able to easily modify their own health profile to reflect 
 
 - [License](#license)
 
+- [Technology](#technology)
+
 - [Collaborators](#collaborators)
 
 - [Questions](#questions)
@@ -47,6 +49,17 @@ npm i
 ## License
 
 This project is licensed under the MIT license.
+
+## Technology Used
+
+```
+ The application's frontend is created with REACT
+
+ The application's backend utilizes GraphQL with Node.js and Express.js server
+
+ The database uses MongoDB and the Mongoose ODM
+
+```
 
 ## Collaborators
 

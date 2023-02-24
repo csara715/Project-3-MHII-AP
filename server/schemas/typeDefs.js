@@ -43,6 +43,15 @@ const typeDefs = gql`
       reaction: String
     ): Medication
     removeMedication(medicationId: ID!): Medication
+    updateMedication(
+      medicationId: ID!
+      medName: String
+      strength: String
+      direction: String
+      prescriber: String
+      allergic: Boolean
+      reaction: String
+    ): Medication
   }
 `;
 

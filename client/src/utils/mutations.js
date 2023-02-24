@@ -54,35 +54,40 @@ export const ADD_MEDICATION = gql`
 `;
 
 export const REMOVE_MEDICATION = gql`
-  mutation removeMedication($_id: String!) {
-    removeMedication(_id: $_id) {
+  mutation removeMedication($medicationId: ID!) {
+    removeMedication(medicationId: $medicationId) {
+      _id
+    }
+  }
+`;
+
+export const UPDATE_MEDICATION = gql`
+  mutation updateMedication(
+    $medicationId: ID!
+    $medName: String!
+    $strength: String
+    $direction: String
+    $prescriber: String
+    $allergic: Boolean!
+    $reaction: String
+  ) {
+    updateMedication(
+      medicationId: $medicationId
+      medName: $medName
+      strength: $strength
+      direction: $direction
+      prescriber: $prescriber
+      allergic: $allergic
+      reaction: $reaction
+    ) {
       medication {
-        _id
         medName
         strength
         direction
         prescriber
         allergic
         reaction
-        createdAt
       }
     }
   }
 `;
-
-// export const UPDATE_MEDICATION = gql`
-//   mutation updateMedication($_id: String!) {
-//     updateMedication(_id: $_id) {
-//       medication {
-//         _id
-//         medName
-//         strength
-//         direction
-//         prescriber
-//         allergic
-//         reaction
-//         createdAt
-//       }
-//     }
-//   }
-// `;

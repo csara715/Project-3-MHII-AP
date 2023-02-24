@@ -6,6 +6,7 @@ import { REMOVE_MEDICATION } from "../../utils/mutations";
 const styles = {
   btn: {
     textAlign: "right",
+    listStyleType: "none",
   },
   button: {
     background: "skyblue",
@@ -15,30 +16,16 @@ const styles = {
 
 const MedicationList = () => {
   const { data } = useQuery(QUERY_MEDICATIONS);
-  const [removeMedication] = useMutation(REMOVE_MEDICATION);
-  let medications = [];
 
-  const deleteMed = (medicationId) => {
-    removeMedication({
-      variables: {
-        _id: medicationId,
-      },
-    });
-  };
-
-  if (data) {
-    medications = data.medications;
-  } else {
-    return <h3>Your medication profile is currently empty!</h3>;
-  }
-
-  // const [removeMedication, { error }] = useMutation(REMOVE_MEDICATION, {
+  const [removeMedication, { data: dt, loading, error }] =
+    useMutation(REMOVE_MEDICATION);
+  // const [removeMedication] = useMutation(REMOVE_MEDICATION, {
   //   update(cache, { data: { removeMedication } }) {
   //     try {
   //       const { medications } = cache.readQuery({
   //         query: QUERY_MEDICATIONS,
   //       });
-
+  //       console.log(data);
   //       cache.writeQuery({
   //         query: QUERY_MEDICATIONS,
   //         data: { medications: [removeMedication, ...medications] },
@@ -49,11 +36,23 @@ const MedicationList = () => {
   //   },
   // });
 
+  let medications = [];
+
+  const deleteMed = ({ medicationId }) => {
+    console.log(medicationId);
+    removeMedication({
+      variables: {
+        $medicationId: medicationId,
+      },
+    });
+  };
+
   // const deleteMed = async ({ medicationId }) => {
+  //   console.log(medicationId);
   //   try {
   //     const { data } = await removeMedication({
   //       variables: {
-  //         _id: medicationId,
+  //         medicationId: medicationId,
   //       },
   //     });
   //   } catch (err) {
@@ -61,144 +60,150 @@ const MedicationList = () => {
   //   }
   // };
 
+  if (data) {
+    medications = data.medications;
+  } else {
+    return <h3>Your medication profile is currently empty!</h3>;
+  }
+
   //Referenced https://freefrontend.com/css-paper-effects/#google_vignette
   return (
     <>
       <div className="notebody">
         <div className="notepad">
           <div className="top">
-            <div class="spiral-part">
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+            <div className="spiral-part">
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
-              <div class="spiral">
-                <div class="hole"></div>
-                <div class="wire"></div>
+              <div className="spiral">
+                <div className="hole"></div>
+                <div className="wire"></div>
               </div>
             </div>
           </div>
@@ -213,24 +218,26 @@ const MedicationList = () => {
                   💊 {medication.medName} {medication.strength} <br />
                   {medication.direction} <br />
                   Prescriber: {medication.prescriber}
-                  <p style={styles.btn}>
+                  <li style={styles.btn}>
                     <button
                       className="btn btn-sm m-2"
                       style={styles.button}
-                      onClick={() => deleteMed({ _id: medication.id })}
+                      onClick={() =>
+                        deleteMed({ medicationId: medication._id })
+                      }
                     >
                       {"   "}
                       Delete 🗑️{"   "}
                     </button>
-                    <button
+                    {/* <button
                       className="btn btn-sm m-2"
                       style={styles.button}
-                      onClick={() => deleteMed({ _id: medication.id })}
+                      // onClick={() => updateMed({ _id: medication.id })}
                     >
                       {"   "}
                       Update ⬆️{"   "}
-                    </button>
-                  </p>
+                    </button> */}
+                  </li>
                 </p>
               ))}
           </div>
