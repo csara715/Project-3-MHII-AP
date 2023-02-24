@@ -60,7 +60,7 @@ const Home = (props) => {
             <Link
               className="btn btn-md m-2"
               style={styles.button}
-              to="/medication"
+              to="/medications"
             >
               Medications
             </Link>

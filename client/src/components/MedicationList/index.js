@@ -17,48 +17,48 @@ const styles = {
 const MedicationList = () => {
   const { data } = useQuery(QUERY_MEDICATIONS);
 
-  const [removeMedication, { data: dt, loading, error }] =
-    useMutation(REMOVE_MEDICATION);
-  // const [removeMedication] = useMutation(REMOVE_MEDICATION, {
-  //   update(cache, { data: { removeMedication } }) {
-  //     try {
-  //       const { medications } = cache.readQuery({
-  //         query: QUERY_MEDICATIONS,
-  //       });
-  //       console.log(data);
-  //       cache.writeQuery({
-  //         query: QUERY_MEDICATIONS,
-  //         data: { medications: [removeMedication, ...medications] },
-  //       });
-  //     } catch (e) {
-  //       console.error(e);
-  //     }
-  //   },
-  // });
+  // const [removeMedication] =
+  // useMutation(REMOVE_MEDICATION);
+  const [removeMedication] = useMutation(REMOVE_MEDICATION, {
+    update(cache, { data: { removeMedication } }) {
+      try {
+        const { medications } = cache.readQuery({
+          query: QUERY_MEDICATIONS,
+        });
+        console.log(data);
+        cache.writeQuery({
+          query: QUERY_MEDICATIONS,
+          data: { medications: [removeMedication, ...medications] },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  });
 
   let medications = [];
 
-  const deleteMed = ({ medicationId }) => {
-    console.log(medicationId);
-    removeMedication({
-      variables: {
-        $medicationId: medicationId,
-      },
-    });
-  };
-
-  // const deleteMed = async ({ medicationId }) => {
+  // const deleteMed = ({ medicationId }) => {
   //   console.log(medicationId);
-  //   try {
-  //     const { data } = await removeMedication({
-  //       variables: {
-  //         medicationId: medicationId,
-  //       },
-  //     });
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
+  //   removeMedication({
+  //     variables: {
+  //       $medicationId: medicationId,
+  //     },
+  //   });
   // };
+
+  const deleteMed = async ({ medicationId }) => {
+    console.log(medicationId);
+    try {
+      const { data } = await removeMedication({
+        variables: {
+          medicationId: medicationId,
+        },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   if (data) {
     medications = data.medications;
