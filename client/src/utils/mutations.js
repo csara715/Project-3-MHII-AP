@@ -54,16 +54,23 @@ export const ADD_MEDICATION = gql`
 `;
 
 export const REMOVE_MEDICATION = gql`
-  mutation removeMedication($medicationId: ID!) {
-    removeMedication(medicationId: $medicationId) {
+  mutation removeMedication($_id: ID!) {
+    removeMedication(medicationId: $_id) {
       _id
+      medName
+      strength
+      direction
+      prescriber
+      allergic
+      reaction
+      createdAt
     }
   }
 `;
 
 export const UPDATE_MEDICATION = gql`
   mutation updateMedication(
-    $medicationId: ID!
+    $_id: ID!
     $medName: String!
     $strength: String
     $direction: String
@@ -72,7 +79,7 @@ export const UPDATE_MEDICATION = gql`
     $reaction: String
   ) {
     updateMedication(
-      medicationId: $medicationId
+      medicationId: $_id
       medName: $medName
       strength: $strength
       direction: $direction
@@ -81,6 +88,7 @@ export const UPDATE_MEDICATION = gql`
       reaction: $reaction
     ) {
       medication {
+        _id
         medName
         strength
         direction

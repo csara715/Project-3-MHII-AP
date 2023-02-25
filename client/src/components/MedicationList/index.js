@@ -17,15 +17,13 @@ const styles = {
 const MedicationList = () => {
   const { data } = useQuery(QUERY_MEDICATIONS);
 
-  // const [removeMedication] =
-  // useMutation(REMOVE_MEDICATION);
+  // const [removeMedication] = useMutation(REMOVE_MEDICATION);
   const [removeMedication] = useMutation(REMOVE_MEDICATION, {
     update(cache, { data: { removeMedication } }) {
       try {
         const { medications } = cache.readQuery({
           query: QUERY_MEDICATIONS,
         });
-        console.log(data);
         cache.writeQuery({
           query: QUERY_MEDICATIONS,
           data: { medications: [removeMedication, ...medications] },
@@ -38,23 +36,22 @@ const MedicationList = () => {
 
   let medications = [];
 
-  // const deleteMed = ({ medicationId }) => {
-  //   console.log(medicationId);
+  // const deleteMed = ({ _id }) => {
   //   removeMedication({
   //     variables: {
-  //       $medicationId: medicationId,
+  //       _id: _id,
   //     },
   //   });
   // };
 
-  const deleteMed = async ({ medicationId }) => {
-    console.log(medicationId);
+  const deleteMed = async ({ _id }) => {
     try {
       const { data } = await removeMedication({
         variables: {
-          medicationId: medicationId,
+          _id: _id,
         },
       });
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
@@ -222,9 +219,7 @@ const MedicationList = () => {
                     <button
                       className="btn btn-sm m-2"
                       style={styles.button}
-                      onClick={() =>
-                        deleteMed({ medicationId: medication._id })
-                      }
+                      onClick={() => deleteMed({ _id: medication._id })}
                     >
                       {"   "}
                       Delete 🗑️{"   "}

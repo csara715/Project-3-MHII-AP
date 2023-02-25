@@ -23,7 +23,6 @@ const HistrxnList = (props) => {
         const { medications } = cache.readQuery({
           query: QUERY_MEDICATIONS,
         });
-
         cache.writeQuery({
           query: QUERY_MEDICATIONS,
           data: { medications: [removeMedication, ...medications] },
@@ -36,21 +35,22 @@ const HistrxnList = (props) => {
 
   let medications = [];
 
-  // const deleteMed = (medicationId) => {
+  // const deleteMed = ({ _id }) => {
   //   removeMedication({
   //     variables: {
-  //       _id: medicationId,
+  //       _id: _id,
   //     },
   //   });
   // };
 
-  const deleteMed = async ({ medicationId }) => {
+  const deleteMed = async ({ _id }) => {
     try {
       const { data } = await removeMedication({
         variables: {
-          _id: medicationId,
+          _id: _id,
         },
       });
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
@@ -216,7 +216,7 @@ const HistrxnList = (props) => {
                     <button
                       className="btn btn-sm m-2"
                       style={styles.button}
-                      onClick={() => deleteMed(medication._id)}
+                      onClick={() => deleteMed({ _id: medication._id })}
                     >
                       {"   "}
                       Delete 🗑️{"   "}
