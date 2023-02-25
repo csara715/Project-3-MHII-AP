@@ -45,13 +45,17 @@ const MedicationList = () => {
   // };
 
   const deleteMed = async ({ _id }) => {
+    const [medName, setMedName] = useState("");
+    const [strength, setStrength] = useState("");
+    const [direction, setDirection] = useState("");
+    const [prescriber, setPrescriber] = useState("");
     try {
       const { data } = await removeMedication({
         variables: {
           _id: _id,
         },
       });
-      window.location.reload();
+      window.location.assign("/medications");
     } catch (err) {
       console.error(err);
     }

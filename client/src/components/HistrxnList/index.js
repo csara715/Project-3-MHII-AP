@@ -51,7 +51,7 @@ const HistrxnList = (props) => {
           _id: _id,
         },
       });
-      window.location.reload();
+      window.location.assign("/allergies");
     } catch (err) {
       console.error(err);
     }
