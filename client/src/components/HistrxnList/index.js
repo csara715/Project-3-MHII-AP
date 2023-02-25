@@ -16,6 +16,7 @@ const styles = {
 
 const HistrxnList = (props) => {
   const { data } = useQuery(QUERY_MEDICATIONS);
+
   // const [removeMedication] = useMutation(REMOVE_MEDICATION);
   const [removeMedication] = useMutation(REMOVE_MEDICATION, {
     update(cache, { data: { removeMedication } }) {
