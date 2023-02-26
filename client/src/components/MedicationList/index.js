@@ -51,7 +51,7 @@ const MedicationList = () => {
           _id: _id,
         },
       });
-      window.location.reload();
+      window.location.reload(true);
     } catch (err) {
       console.error(err);
     }
